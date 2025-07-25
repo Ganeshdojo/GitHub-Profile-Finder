@@ -46,7 +46,3 @@ Rate Limits:
 - Add copy profile URL button - done
 - Show user's top languages
 - Add animations for better UX
-
-## License
-
-MIT License - feel free to use this project for learning purposes or in your own projects. 
