@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub User Search</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="background">
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
+    <div class="container">
+      <div class="header">
+        <h1>
+          <i class="fab fa-github"></i>
+          GitHub Profile Finder
+        </h1>
+        <p class="subtitle">Stalk your favorite people on GitHub</p>
+      </div>
+      <div class="search-container glass">
+        <div class="search-box">
+          <div class="input-wrapper">
+            <i class="fas fa-search search-icon"></i>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Enter GitHub username..."
+              autocomplete="off"
+            />
+            <button id="clearBtn" class="clear-btn hidden">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <button id="searchBtn" class="search-btn">
+            <i class="fas fa-search"></i>
+            <span>Search</span>
+          </button>
+        </div>
+        <div class="search-tips">
+          <p>
+            Try searching mine: <span class="tip">ganeshdojo</span> or
+            <span class="tip">your username</span> 🎃
+          </p>
+        </div>
+      </div>
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Fetching user data...</p>
+      </div>
+      <div id="error" class="error glass hidden">
+        <i class="fas fa-exclamation-circle"></i>
+        <p>Oops! User not found</p>
+        <p class="error-subtitle">Try searching for a different username</p>
+      </div>
+      <div id="userProfile" class="user-profile glass hidden">
+        <div class="profile-header">
+          <div class="avatar-container">
+            <img id="avatar" src="" alt="User avatar" />
+            <div class="avatar-status"></div>
+          </div>
+          <div class="profile-info">
+            <h2 id="name"></h2>
+            <p id="username" class="username"></p>
+            <p id="bio" class="bio"></p>
+            <div class="profile-stats">
+              <div class="stat">
+                <i class="fas fa-users"></i>
+                <span id="followers"></span>
+                <span class="stat-label">followers</span>
+              </div>
+              <div class="stat">
+                <i class="fas fa-user-friends"></i>
+                <span id="following"></span>
+                <span class="stat-label">following</span>
+              </div>
+              <div class="stat">
+                <i class="fas fa-code-branch"></i>
+                <span id="repos"></span>
+                <span class="stat-label">repos</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-details">
+          <div class="detail" id="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span></span>
+          </div>
+          <div class="detail" id="website">
+            <i class="fas fa-link"></i>
+            <a href="" target="_blank"></a>
+          </div>
+          <div class="detail" id="twitter">
+            <i class="fab fa-twitter"></i>
+            <a href="" target="_blank"></a>
+          </div>
+        </div>
+        <div class="profile-actions">
+          <a id="githubLink" href="" target="_blank" class="github-link">
+            <i class="fab fa-github"></i>
+            <span>View on GitHub</span>
+          </a>
+          <button id="copyLink" class="copy-link">
+            <i class="fas fa-copy"></i>
+            <span>Copy Profile URL</span>
+          </button>
+        </div>
+        <!-- New Feature Sections -->
+        <section class="repos-section">
+          <h3><i class="fas fa-code-branch"></i> Recent Repositories</h3>
+          <div class="repos-grid"></div>
+        </section>
+        <section class="languages-section">
+          <h3><i class="fas fa-code"></i> Top Languages</h3>
+          <div class="languages-container"></div>
+        </section>
+        <div class="pagination-container"></div>
+      </div>
+      <footer class="footer">
+        <p>
+          Made with 🎃 by
+          <a href="https://github.com/ganeshdojo" target="_blank">Ganesh</a>
+        </p>
+        <p class="footer-subtitle">using GitHub REST API</p>
+      </footer>
+    </div>
+    <div id="toast" class="toast hidden">
+      <i class="fas fa-check-circle"></i>
+      <span>Profile URL copied to clipboard!</span>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
